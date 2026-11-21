@@ -1,0 +1,13 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "rootDir": ".",
+    "noEmit": true,
+    "paths": {
+      "memspace": ["./src/index.ts"],
+      "memspace/express": ["./src/adapters/express.ts"],
+      "memspace/testing": ["./src/adapters/testing.ts"]
+    }
+  },
+  "include": ["examples"]
+}
