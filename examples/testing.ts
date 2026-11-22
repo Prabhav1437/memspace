@@ -3,8 +3,8 @@
  * Run: npx vitest run examples/testing.ts  (or adapt into your own test suite)
  */
 import { describe, expect, it } from "vitest";
-import { createFixture, toTree } from "memspace/testing";
-import type { VirtualFileSystem } from "memspace";
+import { createFixture, toTree } from "memspace-fs/testing";
+import type { VirtualFileSystem } from "memspace-fs";
 
 // Application code: depends on an fs-shaped object rather than importing node:fs.
 function bumpVersion(fs: Pick<VirtualFileSystem, "readFileSync" | "writeFileSync">, file: string): string {

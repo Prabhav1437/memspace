@@ -5,7 +5,7 @@
 import { Transform } from "node:stream";
 import { pipeline } from "node:stream/promises";
 import { createHash } from "node:crypto";
-import { createFs } from "memspace";
+import { createFs } from "memspace-fs";
 
 const fs = createFs();
 

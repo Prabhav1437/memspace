@@ -1,8 +1,8 @@
 /**
- * Testing utilities (`memspace/testing`).
+ * Testing utilities (`memspace-fs/testing`).
  *
  * ```ts
- * import { createFixture, toTree } from "memspace/testing";
+ * import { createFixture, toTree } from "memspace-fs/testing";
  *
  * const fs = createFixture({
  *   "/app/config.json": JSON.stringify({ port: 3000 }),

@@ -2,9 +2,9 @@
  * Memspace — a Node.js-compatible, zero-disk, in-memory virtual filesystem.
  *
  * ```ts
- * import fs from "memspace";                 // default, package-level instance
- * import { createFs } from "memspace";       // independent instances
- * import { readFileSync } from "memspace";   // functions bound to the default instance
+ * import fs from "memspace-fs";                 // default, package-level instance
+ * import { createFs } from "memspace-fs";       // independent instances
+ * import { readFileSync } from "memspace-fs";   // functions bound to the default instance
  * ```
  */
 import { VirtualFileSystem, type MemspaceStats, type SnapshotOptions } from "./api/vfs.js";
@@ -37,7 +37,7 @@ const fs: VirtualFileSystem = new VirtualFileSystem({ name: "default" });
 export default fs;
 
 // Native-style named exports bound to the default instance, so
-// `import { readFileSync } from "node:fs"` can become `from "memspace"`.
+// `import { readFileSync } from "node:fs"` can become `from "memspace-fs"`.
 export const {
   promises,
   access, accessSync, appendFile, appendFileSync, chmod, chmodSync, chown, chownSync,

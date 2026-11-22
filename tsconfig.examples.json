@@ -4,9 +4,9 @@
     "rootDir": ".",
     "noEmit": true,
     "paths": {
-      "memspace": ["./src/index.ts"],
-      "memspace/express": ["./src/adapters/express.ts"],
-      "memspace/testing": ["./src/adapters/testing.ts"]
+      "memspace-fs": ["./src/index.ts"],
+      "memspace-fs/express": ["./src/adapters/express.ts"],
+      "memspace-fs/testing": ["./src/adapters/testing.ts"]
     }
   },
   "include": ["examples"]

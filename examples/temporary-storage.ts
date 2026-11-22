@@ -2,7 +2,7 @@
  * Temporary storage: a TTL cache and a JSON "database" with snapshots.
  * Run: npx tsx examples/temporary-storage.ts
  */
-import { createFs } from "memspace";
+import { createFs } from "memspace-fs";
 
 const fs = createFs({ name: "cache", maxMemory: 8 * 1024 * 1024 });
 fs.mkdirSync("/cache");

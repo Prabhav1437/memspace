@@ -19,9 +19,9 @@ try {
   run("npm", ["install", "--silent", "--no-audit", "--no-fund", join(work, tarball), `typescript@${JSON.parse(run("node", ["-p", "JSON.stringify(require('typescript/package.json').version)"], root))}`, "@types/node", "@types/express"]);
 
   writeFileSync(join(work, "esm.mjs"), `
-    import fs, { createFs, VirtualFileSystem, readFileSync, writeFileSync } from "memspace";
-    import { expressMiddleware, serveStatic } from "memspace/express";
-    import { createFixture, toTree } from "memspace/testing";
+    import fs, { createFs, VirtualFileSystem, readFileSync, writeFileSync } from "memspace-fs";
+    import { expressMiddleware, serveStatic } from "memspace-fs/express";
+    import { createFixture, toTree } from "memspace-fs/testing";
     writeFileSync("/a", "esm");
     if (readFileSync("/a", "utf8") !== "esm" || !(fs instanceof VirtualFileSystem)) throw new Error("esm default");
     const inst = createFs({ maxMemory: 10 });
@@ -31,10 +31,10 @@ try {
     console.log("esm ok");
   `);
   writeFileSync(join(work, "cjs.cjs"), `
-    const memspace = require("memspace");
+    const memspace = require("memspace-fs");
     const { createFs, default: fs } = memspace;
-    const { expressMiddleware } = require("memspace/express");
-    const { withFs } = require("memspace/testing");
+    const { expressMiddleware } = require("memspace-fs/express");
+    const { withFs } = require("memspace-fs/testing");
     fs.writeFileSync("/a", "cjs");
     if (memspace.readFileSync("/a", "utf8") !== "cjs") throw new Error("cjs default");
     if (createFs().existsSync("/a")) throw new Error("isolation");
@@ -42,8 +42,8 @@ try {
     console.log("cjs ok");
   `);
   writeFileSync(join(work, "types.mts"), `
-    import fs, { createFs, type MemspaceStats, type Stats } from "memspace";
-    import { expressMiddleware } from "memspace/express";
+    import fs, { createFs, type MemspaceStats, type Stats } from "memspace-fs";
+    import { expressMiddleware } from "memspace-fs/express";
     import express from "express";
     const s: string = fs.readFileSync("/a", "utf8");
     const b: Buffer = fs.readFileSync("/a");
@@ -56,7 +56,7 @@ try {
     void [s, b, p, st, m];
   `);
   writeFileSync(join(work, "types.cts"), `
-    import memspace = require("memspace");
+    import memspace = require("memspace-fs");
     const text: string = memspace.default.readFileSync("/a", "utf8");
     const inst = memspace.createFs();
     void [text, inst.getStats().usedMemory];

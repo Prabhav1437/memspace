@@ -4,7 +4,7 @@
  */
 import express from "express";
 import { pipeline } from "node:stream/promises";
-import { createFs, expressMiddleware, serveStatic } from "memspace/express";
+import { createFs, expressMiddleware, serveStatic } from "memspace-fs/express";
 
 const fs = createFs({ name: "uploads", maxMemory: 64 * 1024 * 1024 });
 fs.mkdirSync("/files");

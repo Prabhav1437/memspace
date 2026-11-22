@@ -4,11 +4,11 @@
 
 | Import | Contents |
 |---|---|
-| `memspace` | `default` (the package-level instance), `createFs`, `VirtualFileSystem`, every `fs` function bound to the default instance (`readFileSync`, `promises`, …), `Stats`, `BigIntStats`, `Dirent`, `Dir`, `ReadStream`, `WriteStream`, `FSWatcher`, `StatWatcher`, `FileHandle`, `constants`, `isErrnoException`, snapshot constants, and all option/result types. |
-| `memspace/express` | `expressMiddleware`, `serveStatic`, `MemspaceRequest`, plus re-exports of `createFs`, `VirtualFileSystem`. |
-| `memspace/testing` | `createFixture`, `populate`, `toTree`, `withFs`, plus re-exports. |
+| `memspace-fs` | `default` (the package-level instance), `createFs`, `VirtualFileSystem`, every `fs` function bound to the default instance (`readFileSync`, `promises`, …), `Stats`, `BigIntStats`, `Dirent`, `Dir`, `ReadStream`, `WriteStream`, `FSWatcher`, `StatWatcher`, `FileHandle`, `constants`, `isErrnoException`, snapshot constants, and all option/result types. |
+| `memspace-fs/express` | `expressMiddleware`, `serveStatic`, `MemspaceRequest`, plus re-exports of `createFs`, `VirtualFileSystem`. |
+| `memspace-fs/testing` | `createFixture`, `populate`, `toTree`, `withFs`, plus re-exports. |
 
-ESM and CommonJS are both supported (`require("memspace").default` is the
+ESM and CommonJS are both supported (`require("memspace-fs").default` is the
 default instance). Note that, as with any dual package, an instance created by
 the ESM build is not `instanceof` the CJS build's class.
 

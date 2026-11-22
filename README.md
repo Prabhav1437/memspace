@@ -6,7 +6,7 @@ isolated filesystem instances that live entirely in memory, with the familiar
 quotas, TTLs, snapshots and an optional Express adapter.
 
 ```ts
-import fs from "memspace";
+import fs from "memspace-fs";
 
 fs.mkdirSync("/app", { recursive: true }); // as with real fs, parent directories must exist
 fs.writeFileSync("/app/config.json", JSON.stringify({ port: 3000, environment: "development" }));
@@ -36,7 +36,7 @@ console.log(fs.readFileSync("/app/config.json", "utf-8"));
 ## Installation
 
 ```bash
-npm install memspace
+npm install memspace-fs
 ```
 
 Requires Node.js 20 or later. Ships ESM and CommonJS builds with full type
@@ -45,7 +45,7 @@ declarations. Zero runtime dependencies.
 ## Quick start
 
 ```ts
-import { createFs } from "memspace";
+import { createFs } from "memspace-fs";
 
 const fs = createFs({ name: "application", maxMemory: 64 * 1024 * 1024 });
 
@@ -62,8 +62,8 @@ fs.dispose(); // release everything
 ### Native-style (default instance)
 
 ```ts
-import fs from "memspace";                       // a package-level default instance
-import { readFileSync, writeFileSync } from "memspace"; // functions bound to that same instance
+import fs from "memspace-fs";                       // a package-level default instance
+import { readFileSync, writeFileSync } from "memspace-fs"; // functions bound to that same instance
 ```
 
 The default instance is isolated from every instance created with `createFs()`.
@@ -71,13 +71,13 @@ Porting code is often just changing the import:
 
 ```diff
 - import { readFileSync, writeFileSync, promises } from "node:fs";
-+ import { readFileSync, writeFileSync, promises } from "memspace";
++ import { readFileSync, writeFileSync, promises } from "memspace-fs";
 ```
 
 ### Instance-based
 
 ```ts
-import { createFs, VirtualFileSystem } from "memspace";
+import { createFs, VirtualFileSystem } from "memspace-fs";
 
 const a = createFs();                 // every call creates an independent filesystem
 const b = new VirtualFileSystem({ cwd: "/work" });
@@ -225,7 +225,7 @@ Optional and dependency-free. It works with Express 4 and 5.
 
 ```ts
 import express from "express";
-import { createFs, expressMiddleware, serveStatic } from "memspace/express";
+import { createFs, expressMiddleware, serveStatic } from "memspace-fs/express";
 
 const app = express();
 const fs = createFs({ maxMemory: 64 * 1024 * 1024 });
@@ -252,7 +252,7 @@ app.listen(3000);
 ## Testing utilities
 
 ```ts
-import { createFixture, toTree, withFs } from "memspace/testing";
+import { createFixture, toTree, withFs } from "memspace-fs/testing";
 
 const fs = createFixture({
   "/app/config.json": '{"port":3000}',

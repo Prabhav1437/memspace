@@ -21,6 +21,6 @@ Initial release.
 - Optional owner/group/other permission enforcement.
 - `snapshot()` / `restore()` in JSON and binary formats, with full validation.
 - `reset()`, `dispose()`, `Symbol.dispose`.
-- `memspace/express` (`expressMiddleware`, `serveStatic`) and `memspace/testing` (`createFixture`, `populate`, `toTree`, `withFs`).
+- `memspace-fs/express` (`expressMiddleware`, `serveStatic`) and `memspace-fs/testing` (`createFixture`, `populate`, `toTree`, `withFs`).
 - ESM and CommonJS builds with type declarations.
 - Native-compatibility test suite, stress tests and benchmarks.

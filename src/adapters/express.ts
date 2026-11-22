@@ -1,5 +1,5 @@
 /**
- * Optional Express integration (`memspace/express`).
+ * Optional Express integration (`memspace-fs/express`).
  *
  * The adapter has no runtime dependency on Express and works with Express 4
  * and 5 (the middleware signature is identical in both). It never creates

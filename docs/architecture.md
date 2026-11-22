@@ -25,8 +25,8 @@ src/
 ├── snapshots/snapshot.ts  JSON/binary encode, decode, validation
 ├── errors/index.ts        Node-shaped errno and coded errors
 └── adapters/
-    ├── express.ts         memspace/express
-    └── testing.ts         memspace/testing
+    ├── express.ts         memspace-fs/express
+    └── testing.ts         memspace-fs/testing
 ```
 
 ## Layers
