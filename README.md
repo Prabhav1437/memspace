@@ -39,7 +39,7 @@ console.log(fs.readFileSync("/app/config.json", "utf-8"));
 npm install memspace-fs
 ```
 
-Requires Node.js 20 or later. Ships ESM and CommonJS builds with full type
+Requires Node.js 22 or later (Node 20 reached end-of-life in April 2026). Ships ESM and CommonJS builds with full type
 declarations. Zero runtime dependencies.
 
 ## Quick start

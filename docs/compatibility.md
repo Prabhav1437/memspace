@@ -1,6 +1,6 @@
 # Compatibility matrix
 
-Memspace targets the Node.js `fs` API (Node 20+) with **POSIX semantics,
+Memspace targets the Node.js `fs` API (Node 22+) with **POSIX semantics,
 Linux flavour**. Behaviour is measured, not assumed: `tests/compatibility/native.test.ts`
 runs 110 scenarios against both native `node:fs` (in a temp directory) and
 Memspace, and requires identical return values, error codes, syscalls and
